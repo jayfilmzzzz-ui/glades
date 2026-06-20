@@ -245,17 +245,21 @@ a{color:inherit;text-decoration:none}
 @media (max-width:640px){
   .hero-bg::before{background-image:url('img/hero-portrait.jpg')}
 }
-/* DESCENT asset breakpoint aligned to the grid's 2-col breakpoint (<=720): narrow/2-col layouts use the approved
-   PORTRAIT descent.jpg (scaled to the section); >720 (3-4 col, wide) uses the wide hi-res descent-desktop.jpg. */
-@media (max-width:1000px){
+/* DESCENT asset breakpoint (Jay 2026-06-20): the PORTRAIT descent.jpg is composed for a truly narrow/portrait
+   viewport — in a wide-but-narrow desktop WINDOW (~700-1000px) it looked glitchy (mobile bg in a wide frame).
+   FIX: only use the portrait asset at true-mobile widths (<=700); the wide continuous descent-desktop.jpg now
+   serves all the way down to 701px (it covers any width cleanly + the 206.1vw scroll-sync math scales with
+   width, so 1:1 sync is preserved at every width >=701). */
+@media (max-width:700px){
   .shop-bg{inset:0;padding-top:0;background-image:url('img/descent.jpg');background-size:auto 100%}
 }
-/* DESKTOP (>1000): wide hi-res descent scrolls 1:1 IN SYNC with the user (Jay 2026-06-18: bg was panning
+/* WIDE descent (>=701): wide hi-res descent scrolls 1:1 IN SYNC with the user (Jay 2026-06-18: bg was panning
    ~1.29x faster than scroll = unnatural drift). FIX: size the section to the full wide-column height
    (206.1vw = the 3614x7448 asset's aspect at cover width) so NATIVE scroll alone traverses croc->floor at
    exactly scroll speed — NO faster-than-scroll JS pan. bg fills the section (inset:0); the JS pan
-   auto-disables because sceneH==secH -> maxT=0 (same native-scroll path mobile already uses). */
-@media (min-width:1001px){
+   auto-disables because sceneH==secH -> maxT=0 (same native-scroll path mobile already uses). 206.1vw scales
+   with viewport width so the sync holds at 768/900/1024/etc., not just >1000. */
+@media (min-width:701px){
   .shop{padding-top:72px;padding-bottom:64px;min-height:206.1vw}
   .shop-bg{inset:0;padding-top:0}
   .shop .grid{row-gap:14px}
