@@ -1,0 +1,293 @@
+/* GLADES — Everglades outfitter storefront (demo). Earthy premium: swamp green, sand, cream. */
+:root{
+  --green:#22402c; --green-2:#2e5238; --green-deep:#16291d;
+  --sand:#c79a5b; --sand-2:#d9b277; --gold:#d98a3d;
+  --cream:#f5efe2; --cream-2:#ece3d0; --paper:#faf6ec;
+  --ink:#1d2520; --ink-2:#5a6258; --line:rgba(34,64,44,.14);
+  --shadow:0 18px 40px rgba(22,41,29,.16);
+  --r:16px; --r-pill:999px;
+  --display:"Oswald",sans-serif; --body:"Inter",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+.card:focus-visible{outline-offset:3px}
+.eyebrow{font-family:var(--display);text-transform:uppercase;letter-spacing:.22em;font-size:12px;font-weight:600;color:var(--sand);display:block}
+.eyebrow.light{color:var(--sand-2)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.06em;
+  font-size:14px;padding:13px 24px;border-radius:var(--r-pill);border:1.5px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+.btn-primary{background:var(--green);color:var(--cream)}
+.btn-primary:hover{background:var(--green-2);transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-ghost{background:transparent;color:var(--cream);border-color:rgba(245,239,226,.5)}
+.btn-ghost:hover{background:rgba(245,239,226,.12);transform:translateY(-2px)}
+
+/* announce */
+.announce{background:var(--green-deep);color:var(--cream-2);text-align:center;font-size:12.5px;letter-spacing:.04em;padding:8px 16px}
+.announce b{color:var(--sand-2)}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  padding:12px 28px;background:rgba(250,246,236,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-brand{flex:0 0 auto}
+.nav-brand img{height:34px;width:auto}
+@media(max-width:560px){
+  .nav{padding:10px 16px;gap:10px}
+  .nav-brand img{height:28px}
+  .nav-links{gap:16px;font-size:13px;order:3;flex-basis:100%;justify-content:center}
+  .nav-cta{padding:8px 14px;font-size:12px}
+}
+.nav-links{display:flex;gap:26px;font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:14px;font-weight:500}
+.nav-links a{color:var(--ink);opacity:.8;transition:opacity .15s}
+.nav-links a:hover{opacity:1;color:var(--green)}
+.nav-cta{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font-size:13px;font-weight:600;background:var(--gold);color:#2b1c08;padding:9px 18px;border-radius:var(--r-pill)}
+.nav-cta:hover{filter:brightness(1.05)}
+
+/* HERO */
+.hero{position:relative;min-height:92vh;display:grid;place-items:center;text-align:center;overflow:hidden;color:var(--cream);padding:60px 20px}
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+/* cinematic Everglades backdrop with a slow Ken-Burns drift */
+.hero-bg::before{content:"";position:absolute;inset:-6%;z-index:0;background:url('img/hero.jpg') center/cover no-repeat;
+  transform:scale(1.06);animation:kenburns 28s ease-in-out infinite alternate;will-change:transform}
+/* green gradient overlay keeps the seal + headline legible */
+.hero-bg::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(11,26,17,.58),rgba(13,28,19,.28) 38%,rgba(12,24,18,.80)),
+    radial-gradient(120% 80% at 30% 45%,rgba(11,26,17,.36),transparent 60%)}
+@keyframes kenburns{from{transform:scale(1.06) translate(0,0)}to{transform:scale(1.15) translate(-1.6%,-1.2%)}}
+@media(prefers-reduced-motion:reduce){.hero-bg::before{animation:none}}
+.hero-inner{position:relative;z-index:2;max-width:760px}
+/* hero brand mark = the EVERGLADES-SCENE CIRCLE EMBLEM (Jay 2026-06-19: wants the circle, not the wordmark;
+   extracted clean + hi-res from glades-logos.svg — NOT the busy FL-state-seal he rejected). Its GLADES band is
+   bold + readable at this size. brightness(0) invert(1) whitens the black line-art to crisp white on the dark photo. */
+.hero-seal{width:clamp(160px,22vw,200px);margin:0 auto 18px;filter:brightness(0) invert(1) drop-shadow(0 4px 18px rgba(0,0,0,.6));opacity:1}
+.hero h1{font-family:var(--display);font-weight:700;text-transform:uppercase;line-height:.98;letter-spacing:.01em;font-size:clamp(40px,7vw,82px)}
+.hero h1 span{color:var(--sand-2)}
+.hero p{margin:18px auto 28px;max-width:54ch;font-size:clamp(15px,1.5vw,18px);color:rgba(245,239,226,.9)}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* brand strip */
+.brandstrip{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 44px;padding:22px 24px;background:var(--green-deep);
+  color:var(--cream-2);font-family:var(--display);text-transform:uppercase;letter-spacing:.12em;font-size:13px}
+.brandstrip b{color:var(--sand-2)}
+
+/* SHOP */
+.shop{max-width:1200px;margin:0 auto;padding:80px 24px 40px}
+.sec-head{text-align:center;margin-bottom:26px}
+.sec-head h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(30px,4.5vw,52px);line-height:1;margin:8px 0 6px;color:var(--green)}
+.sec-head p{color:var(--ink-2);font-size:15px}
+.filters{display:flex;gap:10px;justify-content:center;margin-bottom:34px}
+.filter{font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:13px;font-weight:600;
+  padding:9px 22px;border-radius:var(--r-pill);border:1.5px solid var(--line);background:#fff;color:var(--ink-2);cursor:pointer;transition:.18s}
+.filter:hover{border-color:var(--sand)}
+.filter.is-on{background:var(--green);color:var(--cream);border-color:var(--green)}
+
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;cursor:pointer;
+  display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.card-img{position:relative;aspect-ratio:1;background:var(--cream-2);overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.card:hover .card-img img{transform:scale(1.05)}
+.card-badge{position:absolute;top:10px;left:10px;font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;
+  font-size:10.5px;font-weight:600;padding:4px 10px;border-radius:var(--r-pill);background:rgba(22,41,29,.82);color:var(--cream)}
+.card-body{padding:14px 15px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card-name{font-family:var(--display);font-weight:600;font-size:16px;line-height:1.15;text-transform:uppercase;letter-spacing:.01em}
+.card-note{font-size:12.5px;color:var(--ink-2);flex:1}
+.card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.card-price{font-family:var(--display);font-weight:700;font-size:19px;color:var(--green)}
+.card-buy{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font-size:12px;font-weight:600;
+  padding:8px 15px;border-radius:var(--r-pill);background:var(--gold);color:#2b1c08;border:none;cursor:pointer;transition:.15s}
+.card-buy:hover{filter:brightness(1.06);transform:translateY(-1px)}
+
+/* RIDES / CONTACT */
+.rides{padding:70px 24px;background:
+  linear-gradient(180deg,rgba(11,26,17,.72),rgba(15,33,22,.82)),
+  radial-gradient(120% 100% at 80% 0%,#3a6045,#16291d 60%);color:var(--cream)}
+.rides-card{max-width:680px;margin:0 auto;text-align:center;background:rgba(245,239,226,.06);border:1px solid rgba(245,239,226,.16);
+  border-radius:22px;padding:40px 34px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.rides-badge{width:88px;margin:0 auto 14px;filter:brightness(0) invert(1);opacity:.92}
+.rides-card h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(28px,4vw,46px);line-height:1;margin:6px 0 12px}
+.rides-card>p{color:rgba(245,239,226,.86);max-width:52ch;margin:0 auto 26px}
+.contact-form{display:flex;flex-direction:column;gap:14px;text-align:left;max-width:520px;margin:0 auto}
+.contact-form label{font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:12px;font-weight:500;color:var(--sand-2);display:flex;flex-direction:column;gap:6px}
+.contact-form input,.contact-form textarea{font-family:var(--body);font-size:15px;color:var(--ink);background:var(--cream);
+  border:1px solid rgba(245,239,226,.3);border-radius:12px;padding:12px 14px;outline:none;transition:box-shadow .15s}
+.contact-form input:focus,.contact-form textarea:focus{box-shadow:0 0 0 3px rgba(217,138,61,.4)}
+.contact-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-form .row2 label{display:flex}
+@media(max-width:560px){.contact-form .row2{grid-template-columns:1fr}}
+.contact-form .btn{align-self:flex-start;margin-top:4px}
+.form-note{font-size:13px;color:var(--sand-2);font-family:var(--body);text-transform:none;letter-spacing:0}
+.rides-alt{margin-top:18px;font-size:14px;color:rgba(245,239,226,.78)}
+.rides-alt a{color:var(--sand-2);text-decoration:underline}
+
+/* FOOTER */
+.footer{background:var(--paper);text-align:center;padding:44px 24px 38px;border-top:1px solid var(--line)}
+.foot-logo{height:74px;width:auto;margin:0 auto 8px}
+.foot-tag{font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--ink-2)}
+.foot-socials{margin:12px 0 6px;font-size:13.5px;color:var(--green)}
+.foot-socials a:hover{color:var(--gold)}
+.foot-copy{font-size:12px;color:var(--ink-2);margin-top:6px}
+
+/* MODAL */
+.modal[hidden]{display:none}
+/* smooth scale+fade open/close (Task1 UX polish) — animate via .is-open; [hidden] is the fully-closed state */
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .22s ease,visibility 0s linear .22s}
+.modal.is-open{opacity:1;visibility:visible;transition:opacity .22s ease}
+.modal-backdrop{position:absolute;inset:0;background:rgba(15,28,19,.62);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);cursor:pointer}
+.modal-card{position:relative;z-index:2;background:#fff;border-radius:20px;max-width:620px;width:100%;max-height:calc(100dvh - 40px);overflow:hidden;box-shadow:var(--shadow);transform:translateY(10px) scale(.97);transition:transform .27s cubic-bezier(.2,.7,.2,1)}
+.modal.is-open .modal-card{transform:none}
+/* BIG, obvious, high-contrast close (>=44px tap target) */
+.modal-x{position:absolute;top:12px;right:12px;z-index:4;width:46px;height:46px;border-radius:50%;border:2px solid rgba(255,255,255,.85);background:rgba(18,34,24,.92);color:#fff;font-size:28px;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 16px rgba(0,0,0,.4);transition:transform .15s ease,background .15s ease}
+.modal-x:hover{background:var(--green);transform:scale(1.07)}
+.modal-x:active{transform:scale(.94)}
+.modal-x:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.modal-body{display:grid;grid-template-columns:1fr 1fr;max-height:calc(100dvh - 40px);overflow:auto}
+@media(prefers-reduced-motion:reduce){.modal,.modal.is-open,.modal-card,.modal.is-open .modal-card{transition:none}}
+@media(max-width:560px){.modal-body{grid-template-columns:1fr}}
+.modal-body img{width:100%;height:100%;object-fit:cover;background:var(--cream-2);min-height:240px}
+.modal-info{padding:26px 24px;display:flex;flex-direction:column;gap:10px}
+.modal-info .card-badge{position:static;align-self:flex-start}
+.modal-info h3{font-family:var(--display);text-transform:uppercase;font-size:24px;line-height:1.05;color:var(--green)}
+.modal-info .price{font-family:var(--display);font-weight:700;font-size:26px;color:var(--green)}
+.modal-info p{color:var(--ink-2);font-size:14px}
+.modal-info .btn{margin-top:6px}
+.modal-info small{color:var(--ink-2);font-size:12px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(20px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
+
+/* ============ JAY TWEAKS: logo header · dark shop ambiance · croc-scale buttons ============ */
+:root{ /* subtle gator-scale emboss: two offset radial rows = brick-scale pattern */
+  --croc: radial-gradient(circle at 50% 100%, rgba(255,255,255,.14) 21%, transparent 23%),
+          radial-gradient(circle at 50% 100%, rgba(0,0,0,.20) 21%, transparent 23%);
+}
+/* 1 — logo-focused header (bigger branded mark) */
+.nav-brand img{height:44px}
+@media(max-width:560px){.nav-brand img{height:34px}}
+
+/* 2 — DARK moody shop ambiance (cohesive with the cinematic hero) */
+.shop{max-width:none;background:#12281f;padding:88px 24px 84px;position:relative;overflow:hidden;isolation:isolate}
+/* SCROLL-DESCENT bg: one tall stitched surface→deep scene shown FULL-WIDTH at natural scale (no zoom/crop),
+   panned by scroll (app.js) so scrolling the shop = descending the water. Section taller than the scene → native scroll. */
+/* padding-top (= 9593/1536) sets the full-scene height robustly even if aspect-ratio is unsupported / image fails (dark base still shows). will-change is toggled in JS only while actually panning, so mobile/no-pan stays cheap. */
+.shop-bg{position:absolute;left:0;top:0;width:100%;z-index:0;padding-top:206.1%;background-color:#12281f;
+  background:url('img/descent-desktop.jpg?v=2') center top/cover no-repeat}
+/* SEMI-BRIGHT: light gradient only behind the header (top) + a faint floor so text reads — scene stays visible.
+   Fixed to the section (not the moving bg). Cards are opaque so always legible. */
+.shop::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(6,12,8,.74) 0%,rgba(7,13,9,.30) 12%,rgba(7,13,9,.06) 27%,transparent 52%,rgba(6,11,8,.30) 100%)}
+.shop>*:not(.shop-bg){position:relative;z-index:2}
+/* keep the section header crisp over the brighter parts of the scene */
+.shop .sec-head .eyebrow,.shop .sec-head h2,.shop .sec-head p{text-shadow:0 2px 16px rgba(4,9,6,.85),0 1px 3px rgba(4,9,6,.75)}
+.shop .sec-head h2{color:var(--cream)}
+.shop .sec-head p{color:rgba(245,239,226,.72)}
+.shop .grid{max-width:1200px;margin:0 auto}
+.shop .filter{background:rgba(245,239,226,.06);border-color:rgba(245,239,226,.16);color:rgba(245,239,226,.82)}
+.shop .filter:hover{border-color:var(--sand)}
+.shop .filter.is-on{background:var(--sand);border-color:var(--sand);color:#241606}
+.shop .card{background:#14261c;border-color:rgba(245,239,226,.10)}
+.shop .card:hover{box-shadow:0 20px 44px rgba(0,0,0,.55)}
+.shop .card-name{color:var(--cream)}
+.shop .card-note{color:rgba(245,239,226,.62)}
+.shop .card-price{color:var(--sand-2)}
+.shop .card-badge{background:rgba(8,15,11,.82);color:var(--cream)}
+
+/* 3 — CROC-SCALE texture on the key buttons (scale layers over the base color, under the label) */
+.btn-primary{background:var(--croc),linear-gradient(180deg,var(--green-2),var(--green));
+  background-size:13px 10px,13px 10px,auto;background-position:0 0,6.5px 5px,0 0}
+.btn-primary:hover{background:var(--croc),linear-gradient(180deg,#356040,var(--green-2));background-size:13px 10px,13px 10px,auto;background-position:0 0,6.5px 5px,0 0}
+.nav-cta,.card-buy{background:var(--croc),linear-gradient(180deg,var(--sand-2),var(--gold));
+  background-size:12px 9px,12px 9px,auto;background-position:0 0,6px 4.5px,0 0}
+.nav-cta:hover,.card-buy:hover{filter:brightness(1.06)}
+
+/* ---- LIFESTYLE / brand band (full-bleed Everglades atmosphere) ---- */
+.lifestyle{position:relative;min-height:64vh;display:grid;place-items:center;text-align:center;color:var(--cream);overflow:hidden;padding:84px 24px}
+.lifestyle-bg{position:absolute;inset:0;z-index:0;background:url('img/lifestyle.jpg') center 38%/cover no-repeat}
+.lifestyle-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,15,.5),rgba(11,24,17,.72)),radial-gradient(110% 70% at 50% 50%,transparent 30%,rgba(8,16,11,.5))}
+.lifestyle-inner{position:relative;z-index:1;max-width:640px}
+.lifestyle h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(34px,5.4vw,66px);line-height:.98;margin:10px 0 14px}
+.lifestyle h2 span{color:var(--sand-2)}
+.lifestyle p{color:rgba(245,239,226,.9);max-width:52ch;margin:0 auto;font-size:clamp(15px,1.4vw,17px)}
+
+/* ============ PRODUCT GALLERY / CAROUSEL (multi-photo per hat) ============ */
+/* card multi-photo indicator */
+.card-shots{position:absolute;top:10px;right:10px;z-index:2;display:inline-flex;align-items:center;gap:4px;
+  background:rgba(8,15,11,.78);color:var(--cream);font:600 11px Inter,sans-serif;padding:4px 8px;border-radius:999px}
+.card-shots svg{display:block;opacity:.9}
+/* left column of the modal becomes the gallery */
+.modal-body .mgal{display:flex;flex-direction:column;background:var(--cream-2);min-height:100%}
+.mgal-stage{position:relative;flex:1 1 auto;min-height:320px;background:var(--cream-2);display:grid;place-items:center;overflow:hidden}
+.modal-body .mgal-stage .mgal-main{width:100%;height:100%;min-height:320px;object-fit:cover;display:block;background:var(--cream-2)}
+.mgal-arr{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:38px;height:38px;border-radius:50%;border:none;
+  background:rgba(255,255,255,.86);color:var(--green);font-size:24px;line-height:1;cursor:pointer;display:grid;place-items:center;
+  box-shadow:0 4px 14px rgba(0,0,0,.18);transition:background .15s,transform .15s}
+.mgal-arr:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
+.mgal-arr.prev{left:10px}.mgal-arr.next{right:10px}
+.mgal-count{position:absolute;bottom:10px;right:10px;z-index:2;background:rgba(8,15,11,.7);color:var(--cream);
+  font:600 11px Inter,sans-serif;letter-spacing:.04em;padding:4px 9px;border-radius:999px}
+.mgal-thumbs{display:flex;gap:7px;padding:9px;background:#fff;overflow-x:auto;scrollbar-width:thin;flex:0 0 auto}
+.mgal-thumb{flex:0 0 auto;width:54px;height:54px;padding:0;border:2px solid transparent;border-radius:9px;overflow:hidden;
+  cursor:pointer;background:var(--cream-2);transition:border-color .15s,transform .15s}
+.mgal-thumb img{width:100%;height:100%;min-height:0;object-fit:cover;display:block}
+.mgal-thumb:hover{transform:translateY(-1px)}
+.mgal-thumb.is-on{border-color:var(--gold)}
+.mgal-thumb:focus-visible{outline:2px solid var(--green);outline-offset:1px}
+@media(max-width:560px){.mgal-stage,.modal-body .mgal-stage .mgal-main{min-height:260px}}
+
+/* ===== iPhone-PORTRAIT: outpainted 9:16 vertical HERO bg so tall phone screens get a properly-composed hero (the shop now uses the tall scroll-descent scene on all breakpoints) ===== */
+@media (max-width:640px){
+  .hero-bg::before{background-image:url('img/hero-portrait.jpg')}
+}
+/* DESCENT asset breakpoint aligned to the grid's 2-col breakpoint (<=720): narrow/2-col layouts use the approved
+   PORTRAIT descent.jpg (scaled to the section); >720 (3-4 col, wide) uses the wide hi-res descent-desktop.jpg. */
+@media (max-width:1000px){
+  .shop-bg{inset:0;padding-top:0;background-image:url('img/descent.jpg');background-size:auto 100%}
+}
+/* DESKTOP (>1000): wide hi-res descent scrolls 1:1 IN SYNC with the user (Jay 2026-06-18: bg was panning
+   ~1.29x faster than scroll = unnatural drift). FIX: size the section to the full wide-column height
+   (206.1vw = the 3614x7448 asset's aspect at cover width) so NATIVE scroll alone traverses croc->floor at
+   exactly scroll speed — NO faster-than-scroll JS pan. bg fills the section (inset:0); the JS pan
+   auto-disables because sceneH==secH -> maxT=0 (same native-scroll path mobile already uses). */
+@media (min-width:1001px){
+  .shop{padding-top:72px;padding-bottom:64px;min-height:206.1vw}
+  .shop-bg{inset:0;padding-top:0}
+  .shop .grid{row-gap:14px}
+}
+
+/* ===================== TABS (real SPA views) ===================== */
+.tabview{display:none}
+.tabview.is-active{display:block}
+.tabview:focus{outline:none}
+/* rides + contact open as full-height centered views (snap to top) */
+#view-rides .rides,#view-contact .contact{min-height:74vh;display:flex;align-items:center;justify-content:center}
+/* active nav-tab underline */
+.nav-tab{position:relative;transition:opacity .15s,color .15s}
+.nav-tab.is-active{color:var(--green);opacity:1}
+.nav-tab.is-active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--gold);border-radius:2px}
+@media(max-width:560px){
+  .nav-links{order:3;flex-basis:100%}
+  .nav-tab.is-active::after{bottom:-2px}
+}
+
+/* ===================== CONTACT view ===================== */
+.contact{width:100%;padding:72px 24px;color:var(--cream);
+  background:linear-gradient(180deg,rgba(11,26,17,.72),rgba(15,33,22,.82)),radial-gradient(120% 100% at 80% 0%,#3a6045,#16291d 60%)}
+.contact-card{max-width:640px;width:100%;margin:0 auto;text-align:center}
+.contact-card h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(30px,5vw,52px);line-height:1;margin:8px 0 10px;color:var(--cream)}
+.contact-card h2 span{color:var(--sand-2)}
+.contact-card>p{color:rgba(245,239,226,.86);max-width:48ch;margin:0 auto 22px;font-size:15px}
+.contact-methods{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+.cmethod{background:rgba(245,239,226,.07);border:1px solid rgba(245,239,226,.18);border-radius:999px;padding:11px 20px;font-size:14px;color:var(--cream);transition:.15s}
+.cmethod span{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;color:var(--sand-2);margin-right:5px;font-size:12.5px}
+.cmethod:hover{background:rgba(245,239,226,.14);transform:translateY(-2px)}
+.contact .contact-form{max-width:560px;margin:0 auto}
+.contact-foot{margin-top:26px;color:rgba(245,239,226,.7);font-size:13px;display:flex;flex-direction:column;gap:6px}
+.contact-socials a{color:rgba(245,239,226,.85)}
+.contact-socials a:hover{color:var(--sand-2)}

@@ -1,0 +1,25 @@
+/* Glades merch — curated demo inventory (9 hats + 8 tees). Each product owns its OWN photo(s); no shared/mixed images.
+   Hats carry an imgs[] gallery (front + angles, each only that hat's verified photos); tees use a single design mockup.
+   Photos sourced from the client Drive: hats = real product shots (HEIC), tees = design mockups.
+   Pricing by type: hat $25, tee $35. Checkout deferred (Buy = placeholder until Etsy/Shopify wired). */
+window.GLADES_PRODUCTS = [
+  // ---- HATS ($25) — real product photos; imgs[] = that hat's own verified gallery (front + angles), no shared/mixed photos ----
+  { id:'hat-1', name:'Glades Trucker Hat — Heather Grey & Tan', type:'hat', price:25, img:'img/hat-1.jpg', imgs:['img/gallery/hat-1-1.jpg','img/gallery/hat-1-2.jpg','img/gallery/hat-1-3.jpg'], note:'Round leather everglades patch · heather grey crown, tan brim' },
+  { id:'hat-2', name:'Glades Trucker Hat — Navy & Tan', type:'hat', price:25, img:'img/hat-2.jpg', imgs:['img/gallery/hat-2-1.jpg','img/gallery/hat-2-2.jpg','img/gallery/hat-2-3.jpg'], note:'Round leather patch · navy crown, tan mesh' },
+  { id:'hat-3', name:'Glades Hat — Sand Duck-Camo', type:'hat', price:25, img:'img/hat-3.jpg', imgs:['img/gallery/hat-3-1.jpg','img/gallery/hat-3-2.jpg','img/gallery/hat-3-3.jpg','img/gallery/hat-3-4.jpg','img/gallery/hat-3-5.jpg'], note:'Round leather patch · sand duck-camo' },
+  { id:'hat-4', name:'Glades Trucker Hat — Black & White', type:'hat', price:25, img:'img/hat-4.jpg', imgs:['img/gallery/hat-4-1.jpg','img/gallery/hat-4-2.jpg','img/gallery/hat-4-3.jpg','img/gallery/hat-4-4.jpg','img/gallery/hat-4-5.jpg','img/gallery/hat-4-6.jpg'], note:'Round leather everglades patch · black crown, white mesh' },
+  { id:'hat-5', name:'Glades Hat — Light Grey (Rectangular Patch)', type:'hat', price:25, img:'img/hat-5.jpg', imgs:['img/gallery/hat-5-1.jpg','img/gallery/hat-5-2.jpg','img/gallery/hat-5-3.jpg'], note:'Rectangular GLADES leather patch · light grey' },
+  { id:'hat-6', name:'Glades Trucker Hat — Light Grey & Black', type:'hat', price:25, img:'img/hat-6.jpg', imgs:['img/gallery/hat-6-1.jpg','img/gallery/hat-6-2.jpg','img/gallery/hat-6-3.jpg'], note:'Round leather everglades patch · light grey crown, black mesh' },
+  { id:'hat-7', name:'Glades Hat — Dark Camo', type:'hat', price:25, img:'img/hat-7.jpg', imgs:['img/gallery/hat-7-1.jpg','img/gallery/hat-7-2.jpg','img/gallery/hat-7-3.jpg','img/gallery/hat-7-4.jpg','img/gallery/hat-7-5.jpg','img/gallery/hat-7-6.jpg'], note:'Round leather everglades patch · dark camo' },
+  { id:'hat-8', name:'Glades Hat — Navy "Wild & Free" (Arched Patch)', type:'hat', price:25, img:'img/hat-8.jpg', imgs:['img/gallery/hat-8-1.jpg','img/gallery/hat-8-2.jpg','img/gallery/hat-8-3.jpg'], note:'Arched "Wild & Free" leather patch · navy crown, white mesh' },
+  { id:'hat-9', name:'Glades Trucker Hat — Black & White (Rectangular Patch)', type:'hat', price:25, img:'img/hat-9.jpg', imgs:['img/gallery/hat-9-1.jpg','img/gallery/hat-9-2.jpg','img/gallery/hat-9-3.jpg'], note:'Rectangular GLADES leather patch · black crown, white mesh' },
+  // ---- TEES ($35) — design mockups ----
+  { id:'tee-mahi', name:'Glades Mahi Tee', type:'tee', price:35, img:'img/shirt-mahi.jpg', imgs:['img/gallery/tee-mahi-1.jpg','img/gallery/tee-mahi-2.jpg','img/gallery/tee-mahi-3.jpg'], note:'Mahi-mahi everglades graphic' },
+  { id:'tee-gator-manatee', name:'Glades Gator & Manatee Tee', type:'tee', price:35, img:'img/shirt-gator-manatee.jpg', imgs:['img/gallery/tee-gator-manatee-1.jpg','img/gallery/tee-gator-manatee-2.jpg','img/gallery/tee-gator-manatee-3.jpg'], note:'Gator & manatee back print' },
+  { id:'tee-flag', name:'Glades Wild & Free Tee', type:'tee', price:35, img:'img/shirt-flag-wildfree.jpg', imgs:['img/gallery/tee-flag-1.jpg','img/gallery/tee-flag-2.jpg','img/gallery/tee-flag-3.jpg'], note:'Glades flag — wild & free' },
+  { id:'tee-sawgrass', name:'Glades Sawgrass Cowboy Tee', type:'tee', price:35, img:'img/shirt-sawgrass-cowboy.jpg', imgs:['img/gallery/tee-sawgrass-1.jpg','img/gallery/tee-sawgrass-2.jpg','img/gallery/tee-sawgrass-3.jpg'], note:'Sawgrass cowboy graphic' },
+  { id:'tee-mangroves', name:'Glades Mangroves Tee', type:'tee', price:35, img:'img/shirt-mangroves.jpg', imgs:['img/gallery/tee-mangroves-1.jpg','img/gallery/tee-mangroves-2.jpg','img/gallery/tee-mangroves-3.jpg'], note:'Everglades mangroves graphic' },
+  { id:'tee-sunsets', name:'Glades Chasing Sunsets Tee', type:'tee', price:35, img:'img/shirt-chasing-sunsets.jpg', imgs:['img/gallery/tee-sunsets-1.jpg','img/gallery/tee-sunsets-2.jpg','img/gallery/tee-sunsets-3.jpg'], note:'Chasing sunsets graphic' },
+  { id:'tee-sunrise', name:'Glades Gator Sunrise Tee', type:'tee', price:35, img:'img/shirt-gator-sunrise.jpg', imgs:['img/gallery/tee-sunrise-1.jpg','img/gallery/tee-sunrise-2.jpg','img/gallery/tee-sunrise-3.jpg'], note:'Gator sunrise graphic' },
+  { id:'tee-swampbuggy', name:'Glades Swamp Buggy Tee', type:'tee', price:35, img:'img/shirt-swamp-buggy.jpg', imgs:['img/gallery/tee-swampbuggy-1.jpg','img/gallery/tee-swampbuggy-2.jpg','img/gallery/tee-swampbuggy-3.jpg'], note:'Swamp buggy graphic' },
+];

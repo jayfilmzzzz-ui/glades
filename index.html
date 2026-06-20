@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>GLADES — Authentic Everglades Outfitter</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2322402c'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' fill='%23f5efe2' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E" />
+<meta name="theme-color" content="#22402c" />
+<meta name="description" content="Glades — authentic Everglades outfitter. Hats, tees & airboat rides out in the River of Grass." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="glades.css?v=7" />
+</head>
+<body>
+  <!-- top announce -->
+  <div class="announce">Authentic Everglades Outfitter · Free local pickup · <b>Airboat rides booking now</b></div>
+
+  <!-- NAV (real tab switcher) -->
+  <header class="nav" id="nav">
+    <a class="nav-brand" href="#/shop" data-tab="shop"><img src="logo/wordmark.png" alt="Glades" /></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#/shop" data-tab="shop" class="nav-tab">Shop</a>
+      <a href="#/rides" data-tab="rides" class="nav-tab">Airboat Rides</a>
+      <a href="#/contact" data-tab="contact" class="nav-tab">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#/shop" data-tab="shop" data-scroll-grid="1">Shop Merch</a>
+  </header>
+
+  <main id="main">
+    <!-- ============ SHOP / LANDING VIEW (hero → scroll into the croc descent shop — original pre-tabs flow) ============ -->
+    <section class="tabview is-active" id="view-shop" aria-label="Shop" tabindex="-1">
+      <!-- HERO landing: airboat-sunset + slogan, then scroll DOWN into the shop -->
+      <section class="hero" id="top">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <img class="hero-seal" src="logo/hero-emblem.png" alt="Glades" />
+          <h1>Live wild.<br/>Run the <span>River of Grass.</span></h1>
+          <p>Authentic Everglades gear — leather-patch hats &amp; original tees, born in the sawgrass. Plus airboat rides through the real Florida wild.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#shop" data-scroll-to="#shop">Shop the Collection</a>
+            <a class="btn btn-ghost" href="#/rides" data-tab="rides">Book an Airboat Ride</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- brand strip -->
+      <section class="brandstrip">
+        <div><b>Leather-patch</b> hats</div>
+        <div><b>Original</b> Everglades art</div>
+        <div><b>Small-batch</b> &amp; local</div>
+        <div><b>Airboat</b> rides &amp; tours</div>
+      </section>
+
+      <!-- SHOP (croc descent) -->
+      <section class="shop" id="shop">
+        <div class="shop-bg" aria-hidden="true"></div>
+        <div class="sec-head">
+          <span class="eyebrow">The Collection</span>
+          <h2>Glades Merch</h2>
+          <p>Every piece runs the swamp. Hats $25 · Tees $35.</p>
+        </div>
+        <div class="filters" id="filters" role="group" aria-label="Filter products">
+          <button class="filter is-on" data-cat="all" aria-pressed="true">All</button>
+          <button class="filter" data-cat="hat" aria-pressed="false">Hats</button>
+          <button class="filter" data-cat="tee" aria-pressed="false">Tees</button>
+        </div>
+        <div class="grid" id="grid" aria-live="polite"><!-- app.js renders products --></div>
+      </section>
+    </section>
+
+    <!-- ============ AIRBOAT RIDES VIEW ============ -->
+    <section class="tabview" id="view-rides" aria-label="Airboat Rides" tabindex="-1" hidden>
+      <section class="rides" id="rides">
+        <div class="rides-card">
+          <img class="rides-badge" src="logo/badge.png" alt="" />
+          <span class="eyebrow light">Out on the water</span>
+          <h2>Book an Airboat Ride</h2>
+          <p>Glide through the sawgrass, spot gators &amp; wildlife, and see the Everglades the way the locals do. Private &amp; group rides — reach out and we'll set you up.</p>
+          <form class="contact-form" id="rideForm" novalidate>
+            <div class="row2">
+              <label>Name<input type="text" name="name" placeholder="Your name" required /></label>
+              <label>Email or phone<input type="text" name="contact" placeholder="So we can reach you" required /></label>
+            </div>
+            <label>Ride details<textarea name="message" rows="3" placeholder="Ride date / party size, or a question…"></textarea></label>
+            <button class="btn btn-primary" type="submit">Send Ride Inquiry</button>
+            <p class="form-note" role="status" aria-live="polite" hidden>Thanks! This is a demo form — we'll wire it to email/booking next. For now: <b>DM @glades</b> or call to book.</p>
+          </form>
+          <div class="rides-alt">Prefer to talk? <a href="#/contact" data-tab="contact">DM us</a> or <a href="#/contact" data-tab="contact">call to book</a>.</div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ============ CONTACT VIEW ============ -->
+    <section class="tabview" id="view-contact" aria-label="Contact" tabindex="-1" hidden>
+      <section class="contact" id="contact">
+        <div class="contact-card">
+          <span class="eyebrow light">Get in touch</span>
+          <h2>Reach the <span>Glades.</span></h2>
+          <p>Merch questions, airboat-ride booking, or a custom order — hit us up, we're quick. Free local pickup out in the Everglades.</p>
+          <div class="contact-methods">
+            <a class="cmethod" href="#"><span>DM</span> @glades</a>
+            <a class="cmethod" href="#"><span>Call</span> to book</a>
+            <a class="cmethod" href="mailto:hello@glades.example"><span>Email</span> us</a>
+          </div>
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="row2">
+              <label>Name<input type="text" name="name" placeholder="Your name" required /></label>
+              <label>Email or phone<input type="text" name="contact" placeholder="So we can reach you" required /></label>
+            </div>
+            <label>Message<textarea name="message" rows="3" placeholder="What's up?"></textarea></label>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <p class="form-note" role="status" aria-live="polite" hidden>Thanks! This is a demo form — we'll wire it to email next. For now: <b>DM @glades</b> or call.</p>
+          </form>
+          <div class="contact-foot">
+            <div class="contact-socials"><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">TikTok</a></div>
+            <div class="contact-loc">Authentic Everglades Outfitter · Everglades, FL</div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <!-- persistent footer (site chrome) -->
+  <footer class="footer">
+    <img class="foot-logo" src="logo/lockup-green.png" alt="Glades — Authentic Everglades Outfitter" />
+    <div class="foot-tag">Authentic Everglades Outfitter · Everglades, FL</div>
+    <div class="foot-copy">© 2026 Glades · Wild &amp; Free</div>
+  </footer>
+
+  <!-- product quick-view modal -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <button class="modal-x" data-close aria-label="Close">×</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="products.js?v=2"></script>
+  <script src="app.js?v=1"></script>
+</body></html>
